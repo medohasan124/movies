@@ -1,0 +1,12 @@
+<div
+class="custom-control custom-checkbox d-inline m-5">
+<input
+    class="custom-control-input record_select role"
+    id="{{ $index }}customCheckbox{{ $CRUDS }}"
+    name='permission[{{ $per->display_name }}][{{ $CRUDS }}]'
+    value='{{ $CRUDS }}' type="checkbox"
+    checked>
+<label
+    for="{{ $index }}customCheckbox{{ $CRUDS }}"
+    class="custom-control-label">{{ $CRUDS }}</label>
+</div>
