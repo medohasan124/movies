@@ -10,7 +10,7 @@ return [
 	* Control if all the laratrust tables should be truncated before running the seeder.
 	*/
     'truncate_tables' => true,
-    
+
     'roles_structure' => [
 	   'SuperAdmin' => [
 		  'users' => 'c,r,u,d',
@@ -18,11 +18,13 @@ return [
 		  'payments' => 'c,r,u,d',
 		  'profile' => 'r,u',
 		  'roles' => 'c,r,u,d',
+		  'permission' => 'c,r,u,d',
 	   ],
 	   'admin' => [
 		  'users' => 'c,r,u,d',
 		  'roles' => 'c,r,u,d',
 		  'profile' => 'r,u',
+          'permission' => 'r',
 	   ],
 	   'user' => [
 		  'profile' => 'r,u',

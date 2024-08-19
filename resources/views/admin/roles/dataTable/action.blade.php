@@ -23,7 +23,7 @@
         </div>
         <div class="modal-body">
           Are you sure you want to delete this role?
-          {{ $id }}
+
         </div>
         <div class="modal-footer">
           <button  class="btn btn-secondary" data-dismiss="modal">Close</button>

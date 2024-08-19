@@ -155,7 +155,7 @@
                     <p>@lang("admin.dashboard")</p>
                   </a>
                 </li>
-                @permission("roles-read")
+
 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
@@ -167,21 +167,27 @@
                       </p>
                     </a>
                     <ul class="nav nav-treeview">
+
+                        @permission("roles-read")
                       <li class="nav-item">
                         <a href="{{ route("admin.role.index") }}" class="nav-link">
                           <i class="far fa-circle nav-icon"></i>
                           <p>@lang("admin.roles")</p>
                         </a>
                       </li>
+
+                      @endpermission
+
+                      @permission("permission-read")
                       <li class="nav-item">
-                        <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                        <a href="{{ route("admin.permission.index") }}" class="nav-link">
                           <i class="far fa-circle nav-icon"></i>
                           <p> <p>@lang("admin.permission")</p></p>
                         </a>
                       </li>
                     </ul>
                   </li>
-                @endpermission
+                     @endpermission
 
               </ul>
             </li>

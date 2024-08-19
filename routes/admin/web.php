@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\permissionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -32,7 +33,11 @@ Route::middleware([
                 Route::get('role/data',[RoleController::class,'data'])->name('role.data');
                 Route::resource('roles',RoleController::class)->names('roles');
 
-                
+                Route::get('permission',[permissionController::class,'index'])->name('permission.index');
+                Route::get('permission/data',[permissionController::class,'data'])->name('permission.data');
+
+
+
 
                 Route::get('dashboard', function () {
                     return view('admin.dashboard.index');
