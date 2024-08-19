@@ -18,7 +18,7 @@ Route::middleware([
     'localeSessionRedirect',
     'localizationRedirect',
     'localeViewPath',
-     //'auth',
+     'auth',
     // 'role:SuperAdmin|Admin'
 ])
     ->prefix(LaravelLocalization::setLocale())
@@ -32,12 +32,14 @@ Route::middleware([
                 Route::get('role/data',[RoleController::class,'data'])->name('role.data');
                 Route::resource('roles',RoleController::class)->names('roles');
 
+                
+
                 Route::get('dashboard', function () {
                     return view('admin.dashboard.index');
                 })->name('dashboard');
 
             });
     });
-    // Auth::routes();
+     Auth::routes();
 
     Route::get('/dashboard', [App\Http\Controllers\Admin\dashboardController::class, 'index'])->name('dashboard');

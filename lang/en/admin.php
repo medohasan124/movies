@@ -6,6 +6,7 @@ return [
     'home'   => 'Home',
     'dashboard'   => 'Dashboard',
     'roles'   => 'Roles',
+
     'users'   => 'Users',
     'date'   => 'Date',
     'edit'   => 'Edit',

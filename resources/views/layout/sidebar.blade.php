@@ -156,14 +156,33 @@
                   </a>
                 </li>
                 @permission("roles-read")
-                <li class="nav-item">
 
-                  <a href="{{ route("admin.role.index") }}" class="nav-link">
-                    <i class="fas fa-user-tag"></i>
-                    <p>@lang("admin.roles")</p>
-                  </a>
-                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user-tag"></i>
+                      <p>
+                        @lang("admin.roles") & @lang("admin.permission")
+                        <i class="fas fa-angle-left right"></i>
+
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="{{ route("admin.role.index") }}" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>@lang("admin.roles")</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p> <p>@lang("admin.permission")</p></p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
                 @endpermission
+
               </ul>
             </li>
 

@@ -38,39 +38,66 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form action="{{ route('admin.roles.update',$ModelsRole->id) }}" method="POST">
+
+
+                            <form action="{{ route('admin.roles.update', $role->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
-
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label>@lang('admin.roles')</label>
-                                        <input type="text" name="name" id="name" value="{{ $ModelsRole->name }}"
+                                        <input type="text" name="name" id="name" value="{{ $role->name }}"
                                             class="form-control">
                                     </div>
+                                    <!-- /.card-header -->
+                                    <div class="card-body p-0">
+                                        <table class="table table-sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>permission</th>
+                                                    <th>description</th>
 
-                                    <?php
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($Permission as $key => $per)
+                                                    <tr>
+                                                        <td>{{ $per->id }}</td>
 
-                                    $roles = ['create', 'read', 'update', 'delete'];
 
-                                    ?>
+                                                        <td>
+                                                            <div class="custom-control custom-checkbox d-inline">
+                                                                <input class="custom-control-input record_select role"
+                                                                    id="{{ $per->id }}customCheckbox"
+                                                                    name='permission[]' value='{{ $per->id }}'
+                                                                    type="checkbox"
+                                                                    @if($role->hasPermission($per->name))
 
-                                    @foreach ($roles as $index => $role)
-                                        <div class="custom-control custom-checkbox ">
-                                            {{ $ModelsRole->name .'-'.$role  }}
-                                            <input class="custom-control-input record_select role"
-                                                id="customCheckbox{{ $role }}" name='role[]'
-                                                value='{{ $role }}' type="checkbox"
-                                                @if ($ModelsRole->hasPermission($ModelsRole->name . 'create-' .$role )) checked @endif>
-                                            <label for="customCheckbox{{ $role }}"
-                                                class="custom-control-label">@lang('admin.' . $role)</label>
-                                        </div>
-                                    @endforeach
+                                                                    checked
+
+                                                                    @endif
+
+                                                                     >
+                                                                <label for="{{ $per->id }}customCheckbox"
+                                                                    class="custom-control-label">{{ $per->name }}</label>
+                                                            </div>
+                                                        </td>
+
+                                                        <td>{{ $per->description }}</td>
+                                                    <tr>
+                                                @endforeach
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.card-body -->
+
 
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" style="background-color: #28a745" class="btn btn-success">@lang('admin.save') <i
+                                    <button type="submit" class="btn btn-success">@lang('admin.update') <i
                                             class='fas fa-save'></i> </button>
                                 </div>
                             </form>

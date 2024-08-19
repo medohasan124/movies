@@ -51,31 +51,32 @@
                                         <table class="table table-sm">
                                             <thead>
                                                 <tr>
-                                                    <th>Role</th>
-                                                    <th>Permission</th>
+                                                    <th>#</th>
+                                                    <th>permission</th>
+                                                    <th>description</th>
 
                                                 </tr>
                                             </thead>
                                             <tbody>
 
-                                                @foreach ($permissionArray as $key => $per)
+                                                @foreach ($Permission as  $per)
                                                     <tr>
-                                                        <td>{{ $key }}</td>
+                                                        <td>{{ $per->id }}</td>
 
 
-                                                        @foreach ($per as $index => $CRUDS)
                                                             <td>
                                                                 <div class="custom-control custom-checkbox d-inline">
                                                                     <input class="custom-control-input record_select role"
-                                                                        id="{{ $key }}customCheckbox{{ $CRUDS }}"
-                                                                        name='permission[]' value='{{ $CRUDS }}'
+                                                                        id="{{ $per->id }}customCheckbox"
+                                                                        name='permission[]' value='{{ $per->id }}'
                                                                         type="checkbox" checked>
                                                                     <label
-                                                                        for="{{ $key }}customCheckbox{{ $CRUDS }}"
-                                                                        class="custom-control-label">{{ $CRUDS }}</label>
+                                                                        for="{{ $per->id }}customCheckbox"
+                                                                        class="custom-control-label">{{ $per->name }}</label>
                                                                 </div>
                                                             </td>
-                                                        @endforeach
+
+                                                        <td>{{ $per->description }}</td>
                                                     <tr>
                                                 @endforeach
 
