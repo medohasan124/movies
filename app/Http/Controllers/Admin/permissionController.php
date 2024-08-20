@@ -11,10 +11,8 @@ class permissionController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('permission:users_read')->only('index');
-        // $this->middleware('permission:users_create')->only('create');
-        // $this->middleware('permission:users_update')->only('update');
-        // $this->middleware('permission:users_delete')->only('delete');
+         $this->middleware('permission:permission-read')->only('index');
+       
     }
 
 
@@ -39,7 +37,7 @@ class permissionController extends Controller
             ->editColumn('updated_at', function ($permission) {
                 return $permission->created_at->format('d-m-y');
             })
-           
+
             ->toJson();
     }
 

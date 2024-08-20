@@ -14,11 +14,10 @@ return [
     'roles_structure' => [
 	   'SuperAdmin' => [
 		  'users' => 'c,r,u,d',
-
 		  'payments' => 'c,r,u,d',
 		  'profile' => 'r,u',
 		  'roles' => 'c,r,u,d',
-		  'permission' => 'c,r,u,d',
+		  'permission' => 'r',
 	   ],
 	   'admin' => [
 		  'users' => 'c,r,u,d',

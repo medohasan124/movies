@@ -12,11 +12,12 @@
   <!-- IonIcons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
+  @notifyCss
   <link rel="stylesheet" href="{{ asset('') }}dist/css/adminlte.min.css">
   <link rel="stylesheet" href="//cdn.datatables.net/2.1.3/css/dataTables.dataTables.min.css">
   {{-- <link rel="stylesheet" href="//cdn.datatables.net/2.1.3/js/dataTables.min.js"> --}}
 
-  @notifyCss
+
   @vite(['resources/css/app.css'])
 </head>
 <!--

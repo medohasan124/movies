@@ -156,7 +156,17 @@
                   </a>
                 </li>
 
+                @permission("users-read")
+                <li class="nav-item">
+                  <a href="{{ route("admin.User.index") }}" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>@lang("admin.users")</p>
+                  </a>
+                </li>
+                @endpermission
 
+
+                @permission("roles-read")
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="fas fa-user-tag"></i>
@@ -168,7 +178,7 @@
                     </a>
                     <ul class="nav nav-treeview">
 
-                        @permission("roles-read")
+
                       <li class="nav-item">
                         <a href="{{ route("admin.role.index") }}" class="nav-link">
                           <i class="far fa-circle nav-icon"></i>
@@ -188,6 +198,8 @@
                     </ul>
                   </li>
                      @endpermission
+
+
 
               </ul>
             </li>
