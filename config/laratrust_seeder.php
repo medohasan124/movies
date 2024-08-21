@@ -1,5 +1,6 @@
 <?php
 
+
 return [
     /**
 	* Control if the seeder should create a user per role while seeding the data.
@@ -18,12 +19,14 @@ return [
 		  'profile' => 'r,u',
 		  'roles' => 'c,r,u,d',
 		  'permission' => 'r',
+		  'settings' => 'r,u',
 	   ],
 	   'admin' => [
 		  'users' => 'c,r,u,d',
 		  'roles' => 'c,r,u,d',
 		  'profile' => 'r,u',
           'permission' => 'r',
+          'settings' => 'r,u',
 	   ],
 	   'user' => [
 		  'profile' => 'r,u',

@@ -34,11 +34,11 @@
 
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">@lang('admin.users') </h3>
+                                <h3 class="card-title">@lang('admin.settings') </h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form action="{{ route('admin.User.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('admin.settings.update', $settings->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="card-body">
@@ -46,50 +46,34 @@
                                         <div class='row'>
                                             <div class='col-md-6'>
                                                 <label>@lang('admin.name')</label>
-                                                <input type="text" name="name" id="name" value="{{ $user->name }}" class="form-control">
+                                                <input type="text" name="name" id="name" value="{{ $settings->name }}" class="form-control">
                                             </div>
                                             <div class='col-md-6'>
                                                 <label>@lang('admin.email')</label>
-                                                <input type="email" name="email" id="email" value="{{ $user->email }}" class="form-control" required>
+                                                <input type="email" name="email" id="email" value="{{ $settings->email }}" class="form-control" required>
                                             </div>
 
-                                            <div class='col-md-6'>
-                                                <label>@lang('admin.password')</label>
-                                                <input type="password" name="password" id="password"  class="form-control" >
-                                            </div>
-                                            <div class='col-md-6'>
-                                                <label>@lang('admin.repeatPassword')</label>
-                                                <input type="password" name="password_confirmation"   id="password" class="form-control" >
-                                            </div>
+
                                             <div class='col-md-6'>
                                                 <label>@lang('admin.image')</label>
                                                 <input type="file" name="image" id="image" class="form-control">
                                             </div>
-
-
-
                                             <div class='col-md-6'>
-                                                <label>@lang('admin.roles')</label>
+                                                <label>@lang('admin.keyword')</label>
+                                                <textarea name="keyword" id="keyword" class="form-control">
+                                                    {{ $settings->keyword }}
+                                                </textarea>
+                                            </div>
 
-                                               <select class='form-control' name="role">
-                                                @foreach ($Role as $row)
-                                                <option
-                                                @if ($user->hasRole($row->name))
-                                                    selected
-                                                @endif
-                                                value='{{ $row->id }}'
-                                                >{{ $row->name }}</option>
-                                                @endforeach
 
-                                               </select>
                                             </div>
                                             <div class='col-md-6'>
                                                 <label>@lang('admin.image')</label>
                                                 <img
-                                                @if(asset('storage/'.$user->image) == null)
-                                                    src="{{$user->image}}"
+                                                @if(asset('storage/'.$settings->image) == null)
+                                                    src="{{$settings->image}}"
                                                 @else
-                                                     src="{{ asset('storage/'.$user->image) }}"
+                                                     src="{{ asset('storage/'.$settings->image) }}"
                                                 @endif
                                                 alt="" width="100px" height="100px">
                                             </div>

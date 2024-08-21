@@ -200,6 +200,17 @@
                      @endpermission
 
 
+                     <li class="nav-item">
+                       <a href="{{ route("admin.settings.index") }}" class="nav-link">
+                        <i class="fas fa-cogs"></i>
+                         <p> <p>@lang("admin.settings")</p></p>
+                       </a>
+                     </li>
+                   </ul>
+                 </li>
+
+
+
 
               </ul>
             </li>

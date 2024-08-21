@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\permissionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\UserController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 /*
@@ -42,6 +43,9 @@ Route::middleware([
                 Route::post('User/bulckDelete',[UserController::class,'bulckDelete'])->name('User.bulckDelete');
                 Route::get('User/data',[UserController::class,'data'])->name('User.data');
                 Route::resource('User',UserController::class)->names('User');
+
+
+                Route::resource('settings',SettingController::class)->names('settings');
 
                 Route::get('dashboard', function () {
                     return view('admin.dashboard.index');
