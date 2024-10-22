@@ -33,6 +33,7 @@ Route::middleware([
                 Route::resource('roles',RoleController::class)->names('roles');
 
                 Route::get('dashboard', function () {
+                    
                     return view('admin.dashboard.index');
                 })->name('dashboard');
 
